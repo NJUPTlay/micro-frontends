@@ -19,7 +19,7 @@ export default defineConfig({
   base: '/',  // 使用相对路径
   server: {
     port: 5174,  // 子应用端口
-    cors: true,
+    cors: true, // 允许跨越
   },
   // build: {
   //   rollupOptions: {

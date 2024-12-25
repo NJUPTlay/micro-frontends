@@ -20,11 +20,17 @@ registerMicroApps([
     activeRule: '/sub-app',  // 激活路由
   },
   {
-    name: 'sub-vue',  // 子应用的名称
-    entry: '//localhost:5175', // 子应用的地址
-    container: '#subapp-container', // 挂载容器
-    activeRule: '/sub-vue',  // 激活路由
+    name: 'sub-vue',
+    entry: '//localhost:5175',
+    container: '#subapp-container',
+    activeRule: '/sub-vue',
   },
+  {
+    name:'webpack-react',
+    entry:'//localhost:5176',
+    container:'#subapp-container',
+    activeRule:'/webpack-react'
+  }
 ]);
 
 start();
