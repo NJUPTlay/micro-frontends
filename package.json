@@ -8,11 +8,13 @@
     "intall:main": "cd main-app && pnpm install",
     "install:react": "cd sub-app && pnpm install",
     "install:vue": "cd sub-vue && pnpm install",
-    "install:all": "pnpm run install:main & pnpm run install:react & pnpm run install:vue",
+    "install:webpack-react": "cd webpack-react && pnpm install",
+    "install:all": "pnpm run install:main & pnpm run install:react & pnpm run install:vue & pnpm run install:webpack-react",
     "start:main": "cd main-app && pnpm run dev",
     "start:react": "cd sub-app && pnpm run dev",
+    "start:webpack-react": "cd webpack-react && pnpm run start",
     "start:vue": "cd sub-vue && pnpm run dev",
-    "start:all": "pnpm run start:main & pnpm run start:react & pnpm run start:vue"
+    "start:all": "pnpm run start:main & pnpm run start:react & pnpm run start:vue & pnpm run start:webpack-react"
   },
   "keywords": [],
   "author": "",
