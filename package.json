@@ -1,0 +1,20 @@
+{
+  "name": "micro-frontends",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "intall:main": "cd main-app && pnpm install",
+    "install:react": "cd sub-app && pnpm install",
+    "install:vue": "cd sub-vue && pnpm install",
+    "install:all": "pnpm run install:main & pnpm run install:react & pnpm run install:vue",
+    "start:main": "cd main-app && pnpm run dev",
+    "start:react": "cd sub-app && pnpm run dev",
+    "start:vue": "cd sub-vue && pnpm run dev",
+    "start:all": "pnpm run start:main & pnpm run start:react & pnpm run start:vue"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
