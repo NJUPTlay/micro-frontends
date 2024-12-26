@@ -3,7 +3,7 @@ import { registerMicroApps, start } from '../../micro-fe/index.js';
 
 
 const MainApp = () => (
-  <div id='root'>
+  <div>
     <h1>Main Application</h1>
     <div id="subapp-container"></div> {/* 子应用容器 */}
   </div>

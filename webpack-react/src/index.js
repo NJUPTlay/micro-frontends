@@ -18,10 +18,12 @@ function render(props) {
   );
 }
 
-// 非qiankun子应用的处理
+// 非qiankun子应用的处理 没有power_by_qinakun 直接render
 if (!window.__POWERED_BY_QIANKUN__) {
   render({});
 }
+
+//导出 方便qiankun的api去获取 webpack 是从入口开始导出的
 
 export async function bootstrap() {
   console.log("webapck react app bootstraped");
@@ -32,6 +34,7 @@ export async function mount(props) {
   render(props);
 }
 
+// 在切换的时候销毁掉
 export async function unmount(props) {
   const { container } = props;
   const mountRoot = container?.querySelector("#root");
