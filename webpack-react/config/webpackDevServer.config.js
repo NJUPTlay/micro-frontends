@@ -29,20 +29,12 @@ module.exports = function (proxy, allowedHost) {
 
       directory: paths.appPublic,
       publicPath: [paths.publicUrlOrPath],
-      // By default files from `contentBase` will not trigger a page reload.
       watch: {
-        // Reportedly, this avoids CPU overload on some systems.
-        // https://github.com/facebook/create-react-app/issues/293
-        // src/node_modules is not ignored to support absolute imports
-        // https://github.com/facebook/create-react-app/issues/1065
         ignored: ignoredFiles(paths.appSrc),
       },
     },
     client: {
       webSocketURL: {
-        // Enable custom sockjs pathname for websocket connection to hot reloading server.
-        // Enable custom sockjs hostname, pathname and port for websocket connection
-        // to hot reloading server.
         hostname: sockHost,
         pathname: sockPath,
         port: sockPort,
@@ -53,33 +45,24 @@ module.exports = function (proxy, allowedHost) {
       },
     },
     devMiddleware: {
-      // It is important to tell WebpackDevServer to use the same "publicPath" path as
-      // we specified in the webpack config. When homepage is '.', default to serving
-      // from the root.
-      // remove last slash so user can land on `/test` instead of `/test/`
       publicPath: paths.publicUrlOrPath.slice(0, -1),
     },
 
     https: getHttpsConfig(),
     host,
     historyApiFallback: {
-      // Paths with dots should still use the history fallback.
-      // See https://github.com/facebook/create-react-app/issues/387.
       disableDotRule: true,
       index: paths.publicUrlOrPath,
     },
-    // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
     proxy,
     onBeforeSetupMiddleware(devServer) {
       devServer.app.use(evalSourceMapMiddleware(devServer));
 
       if (fs.existsSync(paths.proxySetup)) {
-        // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(devServer.app);
       }
     },
     onAfterSetupMiddleware(devServer) {
-      // Redirect to `PUBLIC_URL` or `homepage` from `package.json` if url not match
       devServer.app.use(redirectServedPath(paths.publicUrlOrPath));
       devServer.app.use(noopServiceWorkerMiddleware(paths.publicUrlOrPath));
     },

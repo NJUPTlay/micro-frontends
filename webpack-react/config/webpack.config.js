@@ -188,12 +188,14 @@ module.exports = function (webpackEnv) {
       : isEnvDevelopment && 'cheap-module-source-map',
     entry: paths.appIndexJs,
     output: {
-      //webpakc 支持运行时的publicPath
+      //webpakc 支持运行时的publicPath 在执行的时候定义publicPath
+      // publicPath:'http://localhost:5176',
       // 打包成库 方便主应用 运行js
       library:`${packageName}-[name]`,
       //umd的模块格式 兼容CommonJS、AMD、 
-      libraryTarget:'umd',
+      libraryTarget:'umd', 
       chunkLoadingGlobal:`webpackJsonp_${packageName}`,
+      globalObject:'window',
       
       path: paths.appBuild,
       pathinfo: isEnvDevelopment,
