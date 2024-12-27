@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
-import { registerMicroApps, start } from '../../micro-fe/index.js';
+import { registerMicroApps, start } from 'qiankun';
+// import { registerMicroApps, start } from '../../micro-fe/index.js';
 
 
 const MainApp = () => (

@@ -15,6 +15,7 @@ export default defineConfig({
   base: '/',
   server:{
     port:5175,
-    cors:true
+    cors:true,
+    origin: 'http://localhost5175'
   }
 })

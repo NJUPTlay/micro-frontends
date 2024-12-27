@@ -30,7 +30,8 @@ export const handleRouter = async () => {
   container.appendChild(template);
 
   //配置全局环境变量
-  window.__POWERED_BY_QIANKUN__=true
+  window.__POWERED_BY_QIANKUN__=true;
+  window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__=app.entry+'/';
 
   const appExports = await execScripts()
   app.bootstrap=appExports.bootstrap

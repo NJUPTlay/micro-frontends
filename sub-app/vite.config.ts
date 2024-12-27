@@ -20,6 +20,7 @@ export default defineConfig({
   server: {
     port: 5174,  // 子应用端口
     cors: true, // 允许跨越
+    origin: 'http://localhost5174',
   },
   // build: {
   //   rollupOptions: {
