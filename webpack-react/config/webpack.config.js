@@ -191,11 +191,11 @@ module.exports = function (webpackEnv) {
       //webpakc 支持运行时的publicPath 在执行的时候定义publicPath
       // publicPath:'http://localhost:5176',
       // 打包成库 方便主应用 运行js
-      library:`${packageName}-[name]`,
-      //umd的模块格式 兼容CommonJS、AMD、 
-      libraryTarget:'umd', 
-      chunkLoadingGlobal:`webpackJsonp_${packageName}`,
-      globalObject:'window',
+      // library:`${packageName}-[name]`,
+      // //umd的模块格式 兼容CommonJS、AMD、 
+      // libraryTarget:'umd', 
+      // chunkLoadingGlobal:`webpackJsonp_${packageName}`,
+      // globalObject:'window',
       
       path: paths.appBuild,
       pathinfo: isEnvDevelopment,
@@ -506,7 +506,7 @@ module.exports = function (webpackEnv) {
         }),
       new WebpackManifestPlugin({
         fileName: 'asset-manifest.json',
-        publicPath: paths.publicUrlOrPath,
+        // publicPath: paths.publicUrlOrPath,
         generate: (seed, files, entrypoints) => {
           const manifestFiles = files.reduce((manifest, file) => {
             manifest[file.name] = file.path;
